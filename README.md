@@ -2,6 +2,7 @@
 
 ## Prerequisites:
 - Vagrant
+- VirtualBox
 - All other dependencies are installed from the provisions, you don't need anything else.
 
 ## How to clone this repo:
