@@ -4,11 +4,7 @@ var chaiJquery = require('chai-jquery');
 var server = require('../app');
 var should = chai.should();
 
-
-
 chai.use(chaiHttp);
-
-
 
 describe('Homepage', function() {
   it('should display the homepage at / GET', function(done) {
@@ -29,9 +25,6 @@ describe('Homepage', function() {
   });
 });
 
-
-
-
 if(process.env.DB_HOST) {
   describe('Blog', function() {
     it('should display the list of posts at /posts GET', function(done) {
@@ -45,8 +38,6 @@ if(process.env.DB_HOST) {
   });
       }
 
-
-
 describe('Fibonacci', function() {
   it('should display the correct fibonacci value at /fibonacci/10 GET', function(done) {
     chai.request(server)
@@ -58,4 +49,3 @@ describe('Fibonacci', function() {
       });
   });
 });
- 
