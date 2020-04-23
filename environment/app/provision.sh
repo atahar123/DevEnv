@@ -6,8 +6,6 @@ sudo apt-get update -y
 # upgrade any packages available
 sudo apt-get upgrade -y
 
-sudo yum install java-1.8.0
-
 # install git
 sudo apt-get install git -y
 
@@ -21,10 +19,9 @@ sudo npm install pm2 -g
 
 sudo apt-get install nginx -y
 
-# remove the old file and add our one
-sudo rm /etc/nginx/sites-available/default
-sudo cp /home/ubuntu/environment/nginx.default /etc/nginx/sites-available/default
-sudo ln /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
+# make the links
+sudo systemctl start nginx
+unlink /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
 # finally, restart the nginx service so the new config takes hold
 sudo service nginx restart
